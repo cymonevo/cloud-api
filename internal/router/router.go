@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/cymon1997/go-backend/internal/log"
-	"github.com/cymon1997/go-backend/internal/render"
+	"github.com/cymonevo/cloud-api/internal/log"
+	"github.com/cymonevo/cloud-api/internal/render"
 	"github.com/gorilla/mux"
 )
 

@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	base "github.com/cymon1997/go-backend/internal/base/entity"
-	"github.com/cymon1997/go-backend/internal/base/model"
-	"github.com/cymon1997/go-backend/module/article/entity"
+	base "github.com/cymonevo/cloud-api/internal/base/entity"
+	"github.com/cymonevo/cloud-api/internal/base/model"
+	"github.com/cymonevo/cloud-api/module/article/entity"
 )
 
 type getByIDModel struct {

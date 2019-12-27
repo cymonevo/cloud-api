@@ -1,7 +1,7 @@
 package entity
 
 import (
-	"github.com/cymon1997/go-backend/internal/base/entity"
+	"github.com/cymonevo/cloud-api/internal/base/entity"
 )
 
 type Article struct {

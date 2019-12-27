@@ -3,7 +3,7 @@ package redis
 import (
 	"fmt"
 
-	"github.com/cymon1997/go-backend/internal/config"
+	"github.com/cymonevo/cloud-api/internal/config"
 )
 
 func parseAddress(cfg *config.RedisConfig) string {

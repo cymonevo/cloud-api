@@ -2,10 +2,10 @@ package handler
 
 import (
 	"context"
-	"github.com/cymon1997/go-backend/module/article/model"
+	"github.com/cymonevo/cloud-api/module/article/model"
 	"net/http"
 
-	"github.com/cymon1997/go-backend/internal/router"
+	"github.com/cymonevo/cloud-api/internal/router"
 )
 
 type articleHandlerImpl struct {

@@ -4,8 +4,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/cymon1997/go-backend/internal/config"
-	"github.com/cymon1997/go-backend/internal/log"
+	"github.com/cymonevo/cloud-api/internal/config"
+	"github.com/cymonevo/cloud-api/internal/log"
 	esconfig "github.com/olivere/elastic/config"
 	"gopkg.in/olivere/elastic.v6"
 )

@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"github.com/cymon1997/go-backend/internal/log"
-	"github.com/cymon1997/go-backend/provider"
+	"github.com/cymonevo/cloud-api/internal/log"
+	"github.com/cymonevo/cloud-api/provider"
 )
 
 func main() {

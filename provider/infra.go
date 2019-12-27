@@ -1,11 +1,11 @@
 package provider
 
 import (
-	"github.com/cymon1997/go-backend/internal/redis"
+	"github.com/cymonevo/cloud-api/internal/redis"
 	"sync"
 
-	"github.com/cymon1997/go-backend/internal/database"
-	"github.com/cymon1997/go-backend/internal/mq"
+	"github.com/cymonevo/cloud-api/internal/database"
+	"github.com/cymonevo/cloud-api/internal/mq"
 )
 
 var (

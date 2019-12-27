@@ -3,8 +3,8 @@ package mq
 import (
 	"fmt"
 
-	"github.com/cymon1997/go-backend/internal/config"
-	"github.com/cymon1997/go-backend/internal/log"
+	"github.com/cymonevo/cloud-api/internal/config"
+	"github.com/cymonevo/cloud-api/internal/log"
 	"github.com/nsqio/go-nsq"
 )
 

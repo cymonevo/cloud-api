@@ -1,10 +1,10 @@
 package provider
 
 import (
-	"github.com/cymon1997/go-backend/consumer"
+	"github.com/cymonevo/cloud-api/consumer"
 	"sync"
 
-	"github.com/cymon1997/go-backend/internal/mq"
+	"github.com/cymonevo/cloud-api/internal/mq"
 )
 
 var (

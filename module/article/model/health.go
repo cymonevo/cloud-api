@@ -2,10 +2,10 @@ package model
 
 import (
 	"context"
-	"github.com/cymon1997/go-backend/internal/database"
-	"github.com/cymon1997/go-backend/internal/mq"
+	"github.com/cymonevo/cloud-api/internal/database"
+	"github.com/cymonevo/cloud-api/internal/mq"
 
-	"github.com/cymon1997/go-backend/internal/redis"
+	"github.com/cymonevo/cloud-api/internal/redis"
 )
 
 type healthModel struct {

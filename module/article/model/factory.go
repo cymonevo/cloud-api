@@ -1,10 +1,10 @@
 package model
 
 import (
-	"github.com/cymon1997/go-backend/internal/base/model"
-	"github.com/cymon1997/go-backend/internal/database"
-	"github.com/cymon1997/go-backend/internal/mq"
-	"github.com/cymon1997/go-backend/internal/redis"
+	"github.com/cymonevo/cloud-api/internal/base/model"
+	"github.com/cymonevo/cloud-api/internal/database"
+	"github.com/cymonevo/cloud-api/internal/mq"
+	"github.com/cymonevo/cloud-api/internal/redis"
 )
 
 type Factory interface {

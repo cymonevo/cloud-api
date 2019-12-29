@@ -1,12 +1,11 @@
 package main
 
 import (
-	"context"
-	"fmt"
 	"net/http"
 
 	"github.com/cymonevo/cloud-api/internal/log"
 	"github.com/cymonevo/cloud-api/provider"
+	"github.com/cymonevo/cloud-api/sample"
 )
 
 func main() {
@@ -19,9 +18,7 @@ func main() {
 }
 
 func Client() {
-	client := provider.GetKloudlessClient()
-	resp, err := client.GetAccounts(context.Background())
-	fmt.Println(resp, err)
+	sample.KloudlessSample()
 }
 
 func Serve() {

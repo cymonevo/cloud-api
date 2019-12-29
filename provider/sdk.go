@@ -17,8 +17,9 @@ func GetKloudlessClient() kloudless.Client {
 		syncKloudlessClient.Do(func() {
 			//TODO: Get from config file
 			cfg := kloudless.Config{
-				Config: sdk.Config{Timeout: 2, URL: "https://api.kloudless.com/v1"},
+				Config: sdk.Config{Timeout: 3, URL: "https://api.kloudless.com/v1"},
 				APIKey: "CcRdosbHQLuqzp0HefTUjgiBq__VeMX4dPLyJw86oGRbNPxk",
+				AccID:  327004249,
 			}
 			kloudlessClient = kloudless.New(cfg)
 		})

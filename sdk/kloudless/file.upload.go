@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"os"
 
 	"github.com/cymonevo/cloud-api/handler"
 	"github.com/cymonevo/cloud-api/internal/log"

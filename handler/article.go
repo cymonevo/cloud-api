@@ -2,10 +2,12 @@ package handler
 
 import (
 	"context"
-	"github.com/cymonevo/cloud-api/module/article/model"
+	"fmt"
 	"net/http"
 
+	"github.com/cymonevo/cloud-api/internal/log"
 	"github.com/cymonevo/cloud-api/internal/router"
+	"github.com/cymonevo/cloud-api/module/article/model"
 )
 
 type articleHandlerImpl struct {
@@ -24,7 +26,27 @@ func (h *articleHandlerImpl) Register() router.Router {
 	h.router.SetPrefix("/article")
 	h.router.HandleJSON("", http.MethodGet, h.index)
 	h.router.HandleView("/view", http.MethodGet, h.view)
+	//test endpoints
+	h.router.HandleJSON("/get", http.MethodGet, h.get)
+	h.router.HandleJSON("/post", http.MethodPost, h.post)
 	return h.router
+}
+
+func (h *articleHandlerImpl) get(ctx context.Context, r *http.Request) (interface{}, error) {
+	auth := r.Header.Get("Authorization")
+	query := GetQueryParam(r, "data")
+	return fmt.Sprint("GET", "\nAUTH: ", auth, "\nDATA: ", query), nil
+}
+
+func (h *articleHandlerImpl) post(ctx context.Context, r *http.Request) (interface{}, error) {
+	auth := r.Header.Get("Authorization")
+	var data interface{}
+	err := ParseBody(r.Body, &data)
+	if err != nil {
+		log.ErrorDetail("Article", "error parse request body", err)
+		return nil, err
+	}
+	return fmt.Sprint("POST", "\nAUTH: ", auth, "\nDATA: ", data), nil
 }
 
 func (h *articleHandlerImpl) index(ctx context.Context, r *http.Request) (interface{}, error) {

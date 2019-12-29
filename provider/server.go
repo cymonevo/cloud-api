@@ -18,7 +18,7 @@ var (
 func GetRouter() router.Router {
 	if appRouter == nil {
 		syncAppRouter.Do(func() {
-			appRouter = router.NewRouter(GetRenderEngine())
+			appRouter = router.New(GetRenderEngine())
 		})
 	}
 	return appRouter

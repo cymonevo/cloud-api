@@ -33,6 +33,6 @@ func (c *articleConsumersImpl) insert(msg *nsq.Message) error {
 		log.ErrorDetail(log.TagMQ, "error unmarshal message", err)
 		return err
 	}
-	log.InfoDetail(log.TagMQ, "consume data %v", data)
+	log.Infof(log.TagMQ, "consume data %+v", data)
 	return nil
 }

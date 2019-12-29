@@ -1,7 +1,10 @@
 package log
 
 import (
+	"fmt"
 	"github.com/fatih/color"
+	"path/filepath"
+	"runtime"
 	"time"
 )
 
@@ -12,7 +15,17 @@ const (
 )
 
 var (
-	timeline = time.Now().Format("2006-01-02 15:04:05 ")
+	timeline  = time.Now().Format("2006-01-02 15:04:05 ")
+	traceline = func() string {
+		pc, file, line, ok := runtime.Caller(3)
+		if ok {
+			file = filepath.Base(file)
+			//TODO: Specify GOD mode to view function name below
+			_ = filepath.Base(runtime.FuncForPC(pc).Name())
+			return fmt.Sprintf("%s:%d ", file, line)
+		}
+		return "unknown"
+	}
 
 	white   = color.New(color.FgWhite)
 	green   = color.New(color.FgGreen)

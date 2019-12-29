@@ -9,7 +9,7 @@ func setFormat(format string, err bool) string {
 	if err {
 		format = fmt.Sprint(format, errline)
 	}
-	return fmt.Sprint(timeline, tagline, format, newline)
+	return fmt.Sprint(timeline, traceline(), tagline, format, newline)
 }
 
 func Print(format string) {

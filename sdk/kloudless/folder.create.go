@@ -4,9 +4,10 @@ import (
 	"context"
 	"errors"
 	"fmt"
+
 	"github.com/cymonevo/cloud-api/handler"
 	"github.com/cymonevo/cloud-api/internal/log"
-	"net/http"
+	"github.com/cymonevo/cloud-api/sdk"
 )
 
 const createFolder = "/accounts/%d/storage/folders"
@@ -26,7 +27,7 @@ func (c *clientImpl) CreateFolder(ctx context.Context, req CreateFolderRequest) 
 		log.ErrorDetail("CreateFolder", "error create folder", err)
 		return CreateFolderResponse{}, err
 	}
-	if resp.StatusCode != http.StatusOK {
+	if !sdk.IsSuccess(resp.StatusCode) {
 		log.Warnf("CreateFolder", "status %d %s", resp.StatusCode, resp.Status)
 		return CreateFolderResponse{}, errors.New(resp.Status)
 	}

@@ -4,10 +4,10 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"net/http"
 
 	"github.com/cymonevo/cloud-api/handler"
 	"github.com/cymonevo/cloud-api/internal/log"
+	"github.com/cymonevo/cloud-api/sdk"
 )
 
 const getFolderContents = "/accounts/%d/storage/folders/%s/contents"
@@ -30,7 +30,7 @@ func (c *clientImpl) GetFolderContents(ctx context.Context, req GetFolderContent
 		log.ErrorDetail("GetFolderContents", "error get folder contents", err)
 		return GetFolderContentsResponse{}, err
 	}
-	if resp.StatusCode != http.StatusOK {
+	if !sdk.IsSuccess(resp.StatusCode) {
 		log.Warnf("GetFolderContents", "status %d %s", resp.StatusCode, resp.Status)
 		return GetFolderContentsResponse{}, errors.New(resp.Status)
 	}

@@ -3,10 +3,10 @@ package kloudless
 import (
 	"context"
 	"errors"
-	"net/http"
 
 	"github.com/cymonevo/cloud-api/handler"
 	"github.com/cymonevo/cloud-api/internal/log"
+	"github.com/cymonevo/cloud-api/sdk"
 )
 
 const getAllAccounts = "/accounts"
@@ -17,7 +17,7 @@ func (c *clientImpl) GetAccounts(ctx context.Context) (interface{}, error) {
 		log.ErrorDetail("GetAccounts", "error get accounts", err)
 		return nil, err
 	}
-	if resp.StatusCode != http.StatusOK {
+	if !sdk.IsSuccess(resp.StatusCode) {
 		log.Warnf("GetAccounts", "status %d %s", resp.StatusCode, resp.Status)
 		return nil, errors.New(resp.Status)
 	}

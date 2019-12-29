@@ -15,6 +15,7 @@ import (
 type Client interface {
 	Get(url string, params interface{}, headers map[string]string) (*http.Response, error)
 	Post(url string, body interface{}, headers map[string]string) (*http.Response, error)
+	PostRaw(uri string, body []byte, headers map[string]string) (*http.Response, error)
 }
 
 type clientImpl struct {
@@ -43,6 +44,10 @@ func (c *clientImpl) Post(uri string, body interface{}, headers map[string]strin
 		return nil, err
 	}
 	return c.execute(http.MethodPost, fmt.Sprint(c.baseURL, uri), raw, headers)
+}
+
+func (c *clientImpl) PostRaw(uri string, body []byte, headers map[string]string) (*http.Response, error) {
+	return c.execute(http.MethodPost, fmt.Sprint(c.baseURL, uri), body, headers)
 }
 
 func (c *clientImpl) execute(method, url string, body []byte, headers map[string]string) (*http.Response, error) {

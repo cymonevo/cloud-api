@@ -12,10 +12,9 @@ type Client interface {
 	GetAccounts(ctx context.Context) (interface{}, error)
 	CreateFolder(ctx context.Context, req CreateFolderRequest) (CreateFolderResponse, error)
 	GetFolderContents(ctx context.Context, req GetFolderContentsRequest) (GetFolderContentsResponse, error)
-	//RetrieveFolderMetadata()
-	//UploadFile()
-	//RetrieveFileMetadata()
-	//DownloadFile()
+	GetFileInfo(ctx context.Context, req GetFileInfoRequest) (GetFileInfoResponse, error)
+	DownloadFile(ctx context.Context, req DownloadFileRequest) (DownloadFileResponse, error)
+	UploadFile(ctx context.Context, req UploadFileRequest) (UploadFileResponse, error)
 }
 
 type Config struct {

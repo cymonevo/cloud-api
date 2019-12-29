@@ -2,29 +2,36 @@ package log
 
 import (
 	"github.com/fatih/color"
+	"time"
 )
 
-var tagline = "[%s] "
-var errline = ", Err: %v"
-var newline = "\n"
+const (
+	tagline = "[%s] "
+	errline = ", Err: %v"
+	newline = "\n"
+)
 
-var white = color.New(color.FgWhite)
-var green = color.New(color.FgGreen)
-var blue = color.New(color.FgBlue)
-var yellow = color.New(color.FgYellow)
-var red = color.New(color.FgRed)
-var redBold = color.New(color.FgRed, color.Bold)
+var (
+	timeline = time.Now().Format("2006-01-02 15:04:05 ")
 
-var print = white.PrintlnFunc()
-var info = green.PrintlnFunc()
-var debug = blue.PrintlnFunc()
-var warn = yellow.PrintlnFunc()
-var error = red.PrintlnFunc()
-var fatal = redBold.PrintlnFunc()
+	white   = color.New(color.FgWhite)
+	green   = color.New(color.FgGreen)
+	blue    = color.New(color.FgBlue)
+	yellow  = color.New(color.FgYellow)
+	red     = color.New(color.FgRed)
+	redBold = color.New(color.FgRed, color.Bold)
 
-var printf = white.PrintfFunc()
-var infof = green.PrintfFunc()
-var debugf = blue.PrintfFunc()
-var warnf = yellow.PrintfFunc()
-var errorf = red.PrintfFunc()
-var fatalf = redBold.PrintfFunc()
+	print = white.PrintlnFunc()
+	info  = green.PrintlnFunc()
+	debug = blue.PrintlnFunc()
+	warn  = yellow.PrintlnFunc()
+	error = red.PrintlnFunc()
+	fatal = redBold.PrintlnFunc()
+
+	printf = white.PrintfFunc()
+	infof  = green.PrintfFunc()
+	debugf = blue.PrintfFunc()
+	warnf  = yellow.PrintfFunc()
+	errorf = red.PrintfFunc()
+	fatalf = redBold.PrintfFunc()
+)

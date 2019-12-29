@@ -37,6 +37,14 @@
   version = "v2.0.0"
 
 [[projects]]
+  digest = "1:a63cff6b5d8b95638bfe300385d93b2a6d9d687734b863da8e09dc834510a690"
+  name = "github.com/google/go-querystring"
+  packages = ["query"]
+  pruneopts = "UT"
+  revision = "44c6ddd0a2342c386950e880b658017258da92fc"
+  version = "v1.0.0"
+
+[[projects]]
   digest = "1:6b7e9b1e2f944a0c84f29943f705954d2d8cfbf6477c37a10d0c80acdbc2445f"
   name = "github.com/googollee/go-engine.io"
   packages = [
@@ -217,6 +225,7 @@
     "github.com/fatih/color",
     "github.com/go-sql-driver/mysql",
     "github.com/gomodule/redigo/redis",
+    "github.com/google/go-querystring/query",
     "github.com/googollee/go-socket.io",
     "github.com/gorilla/mux",
     "github.com/jmoiron/sqlx",

@@ -74,9 +74,5 @@ func (h *articleHandlerImpl) view(ctx context.Context, r *http.Request) (router.
 }
 
 func (h *articleHandlerImpl) health(ctx context.Context, r *http.Request) (interface{}, error) {
-	resp, err := h.factory.NewHealthModel().Call(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return resp, nil
+	return h.factory.NewHealthModel().Do(ctx)
 }

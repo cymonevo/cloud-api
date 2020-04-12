@@ -4,31 +4,34 @@ import (
 	"context"
 	"time"
 
-	base "github.com/cymonevo/cloud-api/internal/base/entity"
-	"github.com/cymonevo/cloud-api/internal/base/model"
-	"github.com/cymonevo/cloud-api/module/article/entity"
+	"github.com/cymonevo/cloud-api/entity"
+	"github.com/cymonevo/cloud-api/internal/log"
 )
 
-type getByIDModel struct {
-	model.BaseModel
+const getArticleTag = "Article|Get"
+
+type GetArticleModel struct {
 }
 
-func (m *getByIDModel) Call(ctx context.Context) (interface{}, error) {
+func (m *GetArticleModel) Do(ctx context.Context) (entity.GetArticleResponse, error) {
+	var response entity.GetArticleResponse
 	err := m.Validate(ctx)
 	if err != nil {
-		return nil, err
+		log.ErrorDetail(getArticleTag, "error validation: %v", err)
+		response.Message = err.Error()
+		return response, err
 	}
-	result := entity.Article{
+	response.Data = entity.Article{
 		Title:       "Golang Project Structure",
 		Description: "How to design your golang project structure",
-		Timestamp: base.Timestamp{
+		Timestamp: entity.Timestamp{
 			CreateBy:   "",
 			CreateTime: time.Now(),
 		},
 	}
-	return &result, nil
+	return response, nil
 }
 
-func (m *getByIDModel) Validate(ctx context.Context) error {
+func (m *GetArticleModel) Validate(ctx context.Context) error {
 	return nil
 }
